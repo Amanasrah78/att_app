@@ -118,7 +118,7 @@ function renderMonth(){
   let h='<thead><tr><th class="name">اسم الطالب</th><th class="sid">Student ID</th>';
   dates.forEach(dt=>{
     const [y,m,d]=dt.split('-');
-    h+=`<th class="dateh"><div class="date">${d}/${m}</div><div class="actions"><button class="mini pbtn" data-act="P" data-date="${dt}">Mark All Present</button><button class="mini abtn" data-act="A" data-date="${dt}">Mark All Absent</button></div></th>`
+    h+=`<th class="dateh"><div class="date">${d}/${m}</div><div class="actions"><button class="mini pbtn" data-act="P" data-date="${dt}">All P</button><button class="mini abtn" data-act="A" data-date="${dt}">All A</button></div></th>`
   });
   h+='<th class="total">Present</th><th class="total">Absent</th><th class="total">%</th></tr></thead><tbody>';
 
