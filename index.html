@@ -24,14 +24,14 @@ button{font:inherit;border:0;border-radius:9px;padding:9px 12px;font-weight:650;
 table{border-collapse:separate;border-spacing:0;min-width:max-content;width:100%;direction:ltr}
 th,td{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px;text-align:center;white-space:nowrap}
 thead th{position:sticky;top:0;background:#eef3f8;z-index:5}
-th.name,td.name{position:sticky;left:0;z-index:8;background:#fff;min-width:225px;text-align:right;direction:rtl}
-th.sid,td.sid{position:sticky;left:225px;z-index:8;background:#fff;min-width:112px;direction:ltr}
-thead th.name,thead th.sid{z-index:15;background:#eef3f8}.dateh{min-width:180px;font-size:12px}.date{font-weight:700;margin-bottom:5px}
+th.name,td.name{position:sticky;left:0;z-index:20;background:#fff;min-width:225px;max-width:225px;text-align:right;direction:rtl;box-shadow:2px 0 0 var(--line)}
+th.sid,td.sid{position:sticky;left:225px;z-index:19;background:#fff;min-width:112px;max-width:112px;direction:ltr;box-shadow:2px 0 0 var(--line)}
+thead th.name,thead th.sid{z-index:30;background:#eef3f8}.dateh{min-width:180px;font-size:12px}.date{font-weight:700;margin-bottom:5px}
 .actions{display:flex;gap:3px;justify-content:center}.mini{font-size:11px;padding:5px 8px;border-radius:7px;white-space:nowrap}
 .pbtn{background:#e8f5e9;color:#166534}.abtn{background:#fdecec;color:#991b1b}
 .cb{width:26px;height:26px;accent-color:#2e7d32}.present{background:var(--present)}.absentExplicit{background:var(--absent)}.total{font-weight:700;background:#fafafa}
 .status{font-size:12px;color:var(--muted);margin-top:7px}.status.ok{color:#166534}
-@media(max-width:700px){th.name,td.name{min-width:170px}th.sid,td.sid{left:170px;min-width:100px}.dateh{min-width:90px}}
+@media(max-width:700px){th.name,td.name{min-width:170px;max-width:170px}th.sid,td.sid{left:170px;min-width:100px;max-width:100px}.dateh{min-width:90px}}
 </style>
 </head>
 <body>
@@ -118,7 +118,7 @@ function renderMonth(){
   let h='<thead><tr><th class="name">اسم الطالب</th><th class="sid">Student ID</th>';
   dates.forEach(dt=>{
     const [y,m,d]=dt.split('-');
-    h+=`<th class="dateh"><div class="date">${d}/${m}</div><div class="actions"><button class="mini pbtn" data-act="P" data-date="${dt}">All P</button><button class="mini abtn" data-act="A" data-date="${dt}">All A</button></div></th>`
+    h+=`<th class="dateh"><div class="date">${d}/${m}</div><div class="actions"><button class="mini pbtn" data-act="P" data-date="${dt}">Mark All Present</button><button class="mini abtn" data-act="A" data-date="${dt}">Mark All Absent</button></div></th>`
   });
   h+='<th class="total">Present</th><th class="total">Absent</th><th class="total">%</th></tr></thead><tbody>';
 
